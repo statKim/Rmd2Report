@@ -1,0 +1,31 @@
+---
+title: "Rmd2Eisvogel"
+author: "Hyunsung Kim"
+date: "`r Sys.Date()`"
+subtitle: "Eisvogel pandoc LaTeX template"
+titlepage: true
+# logo: "justjensen-logo.pdf"
+# titlepage-rule-color: "6F4A8E"
+# titlepage-text-color: "000000"
+# titlepage-rule-height: 2
+toc-own-page: true
+output:
+  pdf_document:
+    # keep_tex: true
+    latex_engine: lualatex
+    template: ./eisvogel.tex
+    extra_dependencies: ["booktabs"]
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Adding an RMarkdown Template
+
+This file is what a user will see when they select your template. Make sure that you update the fields in the yaml header. In particular you will want to update the `output` field to whatever format your template requires.
+
+This is a good place to demonstrate special features that your template provides. Ideally it should knit out-of-the-box, or at least contain clear instructions as to what needs changing.
+
+Finally, be sure to remove this message!
