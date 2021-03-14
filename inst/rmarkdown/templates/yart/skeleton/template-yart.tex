@@ -292,11 +292,17 @@ $endfor$
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \pagestyle{fancy}
-\lhead{$author$}
+\lhead{
+    $if(course)$
+        $course$: $title$
+    $else$
+        $title$
+    $endif$
+}
 \chead{}
 % \chead{$course$ : $title$}
 \rhead{\nouppercase{\leftmark}}
-\lfoot{$title$}
+\lfoot{$author$}
 % \rhead{\firstxmark}
 % \lfoot{\lastxmark}
 \cfoot{}
@@ -325,39 +331,69 @@ $endfor$
 
        \vspace*{1cm}
 
-       \LARGE{ \textbf{ $if(title)$ $if(UP_title)$ \uppercase{$title$} $else$ $title$ $endif$ $else$ Untitled $endif$ }}
+       % \LARGE{ \textbf{ $if(title)$ $if(UP_title)$ \uppercase{$title$} $else$ $title$ $endif$ $else$ Untitled $endif$ }}
+        \LARGE{
+            \textbf{
+                $if(title)$
+                    $if(course)$
+                        $if(UP_title)$
+                            \uppercase{$course$: $title$}
+                        $else$
+                            $course$: $title$
+                    $endif$
+                    $else$
+                        $if(UP_title)$
+                            \uppercase{$title$}
+                        $else$
+                            $title$
+                        $endif$
+                    $endif$
+                $else$
+                    Untitled
+                $endif$
+            }
+        }
 
        %\vspace{0.5cm}
 
-       \large{ $if(subtitle)$ $if(UP_subtitle)$ \uppercase{$subtitle$} $else$ $subtitle$ $endif$ $else$ No Subtitle $endif$ }
+       \large{ $if(subtitle)$ $if(UP_subtitle)$ \uppercase{$subtitle$} $else$ $subtitle$ $endif$ $endif$ }
 
-        \vspace{2cm}
+        $if(duedate)$
+            \Large{Due on $duedate$} \\
+        $endif$
+        $if(prof)$
+            \Large{Professor: $prof$} \\
+        $endif$
 
-        $if(course)$ $course$ \\ $endif$
-        %\vspace{0.5cm}
-        $if(field)$ \large{$field$}  \\ $endif$
+        % \vspace{2cm}
+        %
+        % $if(course)$ $course$ \\ $endif$
+        % \vspace{0.5cm}
+        % $if(field)$ \large{$field$}  \\ $endif$
 
-        \vspace{1cm}
+        \vspace{10cm}
 
-        $if(author)$ \textbf{$author$}  \\ $endif$
-        $if(ID)$ $ID$ \\ $endif$
-        $if(address)$ $address$  \\ $endif$
+        $if(author)$ \Large{\textbf{$author$}}  \\ $endif$
+        $if(studentid)$ \Large{Student ID: $studentid$} \\ $endif$
+        $if(major)$ \Large{$major$}  \\ $endif$
+        $if(univ)$ \Large{$univ$}  \\ $endif$
 
-         \vspace{1cm}
-        $if(date)$ $date$ \\ $endif$
-
-        $if(referee)$
-        \vspace{.51cm}
-         $referee$
-         $endif$
+        % \vspace{1cm}
+        % $if(date)$ $date$ \\ $endif$
+        %
+        % $if(referee)$
+        % \vspace{.51cm}
+        %  $referee$
+        %  $endif$
 
          \vfill
-
-
-
      \end{center}
     \thispagestyle{empty}
 \end{titlepage}
+
+\newpage
+
+\tableofcontents
 
 \newpage
 % \thispagestyle{empty}

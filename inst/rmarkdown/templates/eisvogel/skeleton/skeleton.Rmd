@@ -1,8 +1,16 @@
 ---
-title: "Rmd2Eisvogel"
+title: "Homework #1"
+# title: "Rmd2Eisvogel"
+# subtitle: "Eisvogel pandoc LaTeX template"
+course: "Multivariate Analysis"
+prof: "Dr. Yaeji Lim"
+duedate: "March 10, 2021"
 author: "Hyunsung Kim"
-date: "`r Sys.Date()`"
-subtitle: "Eisvogel pandoc LaTeX template"
+studentid: "2021110029"
+major: "Department of Statistics"
+univ: "Chung-Ang University"
+# ID: 'Student ID: 2021110029'
+# date: "March 10, 2021"
 titlepage: true
 # logo: "justjensen-logo.pdf"
 # titlepage-rule-color: "6F4A8E"

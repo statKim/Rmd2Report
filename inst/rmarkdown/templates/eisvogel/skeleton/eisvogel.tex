@@ -467,34 +467,34 @@ $if(csl-refs)$
 $endif$
 
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
-$if(beamer)$
-$else$
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-$endif$
+  $if(beamer)$
+  $else$
+  \usepackage{etoolbox}
+  \makeatletter
+  \providecommand{\subtitle}[1]{% add subtitle to \maketitle
+    \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+  }
+  \makeatother
+  $endif$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+  \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 \date{$date$}
 $if(beamer)$
-$if(institute)$
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
-$if(titlegraphic)$
-\titlegraphic{\includegraphics{$titlegraphic$}}
-$endif$
-$if(logo)$
-\logo{\includegraphics{$logo$}}
-$endif$
+  $if(institute)$
+    \institute{$for(institute)$$institute$$sep$ \and $endfor$}
+  $endif$
+  $if(titlegraphic)$
+    \titlegraphic{\includegraphics{$titlegraphic$}}
+  $endif$
+  $if(logo)$
+    \logo{\includegraphics{$logo$}}
+  $endif$
 $endif$
 
 
@@ -823,9 +823,17 @@ $else$
 \fancypagestyle{eisvogel-header-footer}{
   \fancyhead{}
   \fancyfoot{}
-  \lhead[$if(header-right)$$header-right$$else$$date$$endif$]{$if(header-left)$$header-left$$else$$title$$endif$}
+  % \lhead[$if(header-right)$$header-right$$else$$date$$endif$]{$if(header-left)$$header-left$$else$$title$$endif$}
+  \lhead{
+    $if(course)$
+        $course$: $title$
+    $else$
+        $title$
+    $endif$
+  }
   \chead[$if(header-center)$$header-center$$else$$endif$]{$if(header-center)$$header-center$$else$$endif$}
-  \rhead[$if(header-left)$$header-left$$else$$title$$endif$]{$if(header-right)$$header-right$$else$$date$$endif$}
+  % \rhead[$if(header-left)$$header-left$$else$$title$$endif$]{$if(header-right)$$header-right$$else$$date$$endif$}
+  \rhead{\nouppercase{\leftmark}}
   \lfoot[$if(footer-right)$$footer-right$$else$\thepage$endif$]{$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$}
   \cfoot[$if(footer-center)$$footer-center$$else$$endif$]{$if(footer-center)$$footer-center$$else$$endif$}
   \rfoot[$if(footer-left)$$footer-left$$else$$for(author)$$author$$sep$, $endfor$$endif$]{$if(footer-right)$$footer-right$$else$\thepage$endif$}
@@ -859,18 +867,18 @@ $endif$
 $if(beamer)$
 $else$
 $if(titlepage)$
-\begin{titlepage}
-$if(titlepage-background)$
-\newgeometry{top=2cm, right=4cm, bottom=3cm, left=4cm}
-$else$
-\newgeometry{left=6cm}
+  \begin{titlepage}
+  $if(titlepage-background)$
+    \newgeometry{top=2cm, right=4cm, bottom=3cm, left=4cm}
+  $else$
+    \newgeometry{left=6cm}
 $endif$
 $if(titlepage-color)$
-\definecolor{titlepage-color}{HTML}{$titlepage-color$}
-\newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
+  \definecolor{titlepage-color}{HTML}{$titlepage-color$}
+  \newpagecolor{titlepage-color}\afterpage{\restorepagecolor}
 $endif$
 $if(titlepage-background)$
-\tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{$titlepage-background$}};
+  \tikz[remember picture,overlay] \node[inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{$titlepage-background$}};
 $endif$
 \newcommand{\colorRule}[3][black]{\textcolor[HTML]{#1}{\rule{#2}{#3}}}
 \begin{flushleft}
@@ -899,15 +907,59 @@ $if(titlepage-background)$
 $else$
 {
   \setstretch{1.4}
+  % \begin{center}
   \vfill
-  \noindent {\huge \textbf{\textsf{$title$}}}
-  $if(subtitle)$
-  \vskip 1em
-  {\Large \textsf{$subtitle$}}
+  % \noindent {\huge \textbf{\textsf{$title$}}}
+  $if(title)$
+    $if(course)$
+      \noindent {\huge \textbf{\textsf{$course$: $title$}}}
+    $else$
+      \noindent {\huge \textbf{\textsf{$title$}}}
+    $endif$
+  $else$
+    \noindent {\huge \textbf{\textsf{Untitled}}}
   $endif$
-  \vskip 2em
-  \noindent {\Large \textsf{$for(author)$$author$$sep$, $endfor$}}
+
+  $if(subtitle)$
+    \vskip 1em
+    {\Large \textsf{$subtitle$}}
+  $endif$
+
+  $if(duedate)$
+    {\Large \textsf{Due on $duedate$}}
+  $endif$
+
+  $if(prof)$
+    {\Large \textsf{Professor: $prof$}}
+  $endif$
+
+  \vskip 20em
+  \noindent {\Large \textbf{\textsf{$for(author)$$author$$sep$, $endfor$}}}
+
+  % $if(ID)$
+  %   \vskip 0.5em
+  %   {\Large \textsf{$ID$}}
+  % $endif$
+
+  $if(studentid)$
+    {\Large \textsf{Student ID: $studentid$}}
+  $endif$
+
+  $if(major)$
+    {\Large \textsf{$major$}}
+  $endif$
+
+  $if(univ)$
+    {\Large \textsf{$univ$}}
+  $endif$
+
+  % $if(course)$
+  %   \vskip 4em
+  %   {\Large \textsf{$course$}}
+  % $endif$
+
   \vfill
+  % \end{center}
 }
 $endif$
 
@@ -918,7 +970,7 @@ $endif$
 
 $if(titlepage-background)$
 $else$
-\textsf{$date$}
+% \textsf{$date$}
 $endif$
 \end{flushleft}
 \end{titlepage}
