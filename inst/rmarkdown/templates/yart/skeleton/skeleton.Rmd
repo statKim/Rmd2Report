@@ -37,10 +37,13 @@ csquotes: TRUE
 output: 
   pdf_document:
     template: template-yart.tex
+    # latex_engine: lualatex
     latex_engine: xelatex
     toc: no
     toc_depth: 2
     citation_package: biblatex
+    # includes:
+    #   in_header: ./preamble.tex
 #    pandoc_args:
 #    - --filter
 #    - /Users/sebastiansaueruser/exec/typography.py/typography.py
@@ -53,7 +56,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # My Section Header 1
-
 
 Please see the documentation of [RMarkdown](http://rmarkdown.rstudio.com/) for more details on how to write RMarkdown documents.
 

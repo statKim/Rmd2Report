@@ -24,6 +24,8 @@ output:
     template: ./eisvogel.tex
     extra_dependencies: ["booktabs"]
     toc: true
+    includes:
+      in_header: ./preamble.tex
 ---
 
 ```{r setup, include=FALSE}
@@ -31,6 +33,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Vinaque sanguine metuenti cuiquam Alcyone fixus
+
+한글 한글 english english
+안녕하세요. 저는 김현성입니다.
 
 ## Aesculeae domus vincemur et Veneris adsuetus lapsum
 
