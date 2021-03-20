@@ -1,16 +1,14 @@
 ---
 title: "Homework #1"
-# title: "Rmd2Eisvogel"
-# subtitle: "Eisvogel pandoc LaTeX template"
-course: "Multivariate Analysis"
-prof: "Dr. Yaeji Lim"
-duedate: "March 10, 2021"
+subtitle: "Rmarkdown template for reports of assignments"
+course: "rmd2report"
+prof: "Dr. statKim"
+duedate: "March 20, 2021"
 author: "Hyunsung Kim"
-studentid: "2021110029"
+studentid: "20210101"
 major: "Department of Statistics"
-univ: "Chung-Ang University"
-# ID: 'Student ID: 2021110029'
-# date: "March 10, 2021"
+institute: "Chung-Ang University"
+
 titlepage: true
 # logo: "justjensen-logo.pdf"
 # titlepage-rule-color: "6F4A8E"
@@ -34,8 +32,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Vinaque sanguine metuenti cuiquam Alcyone fixus
 
-한글 한글 english english
-안녕하세요. 저는 김현성입니다.
+안녕하세요. 저는 통계학을 공부하고 있는 김현성입니다.
 
 ## Aesculeae domus vincemur et Veneris adsuetus lapsum
 

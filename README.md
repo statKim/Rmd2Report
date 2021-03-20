@@ -7,15 +7,15 @@ Original version of templates are available on [**Eisvogel**](https://github.com
 
 ```yaml
 ---
-title: Document title
-subtitle: Document subtitle
-course: Course name
-prof: Professor name
-duedate: "March 14, 2021"
+title: "Homework #1"
+subtitle: "Rmarkdown template for reports of assignments"
+course: "rmd2report"
+prof: "Dr. statKim"
+duedate: "March 20, 2021"
 author: "Hyunsung Kim"
-studentid: Student ID
+studentid: "20210101"
 major: "Department of Statistics"
-univ: "Chung-Ang University"
+institute: "Chung-Ang University"
 ---
 ```
 
