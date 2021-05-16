@@ -5,6 +5,9 @@ This templates are **customized version** of [**Eisvogel**](https://github.com/W
 
 Original version of templates are available on [**Eisvogel**](https://github.com/Wandmalfarbe/pandoc-latex-template) and [**Yart**](https://github.com/sebastiansauer/yart) github repositories.
 
+**Korean** language is also supported but it was tested in `MikTeX` for Windows and `MacTeX` for macOS.
+(Currently, it is not supported for `TinyTeX`.)
+
 ```yaml
 ---
 title: "Homework #1"
