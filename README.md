@@ -27,3 +27,7 @@ institute: "Chung-Ang University"
 # install.packages("devtools")
 devtools::install_github("statKim/rmd2report")
 ```
+
+## Examples
+- [**Eisvogel**](https://github.com/statKim/rmd2report/blob/main/Example/eisvogel.pdf)
+- [**Yart**](https://github.com/statKim/rmd2report/blob/main/Example/yart.pdf)
